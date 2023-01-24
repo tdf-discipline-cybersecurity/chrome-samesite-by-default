@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Demo for rebound for cookie</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="robots" content="index, follow"/>
+</head>
+<body>
+<h1>Rebound for cookie</h1>
+<p>Demo page to have access to sameSite=strict cookie, using a rebound</p>
+<p>
+    The goal here is to keep having session cookie in a strict samesite policies, even with oauth callback url.
+    Security aspect taken into consideration (quickly):
+<ul>
+    <li>Bounce should be done in HTML/JS to have a user page on the flow to get the cookie back</li>
+    <li>With bounce in JS/Html, the bounce can't be abuse for CSRF/api call</li>
+    <li>The bounce SHOULD control parameter (and URL/callback)</li>
+    <li>The bounce SHOULD handle the fact the cookie can be still missing.</li>
+</ul>
+</p>
+<ul>
+    <li><a href="/strict">Set some cookies</a></li>
+    <li><a href="/callback?code=xxx&nope=yyy">Try a (local) callback</a></li>
+    <li><a href="http://helpers.rfc/helpers">Try an "external" callback link</a></li>
+</ul>
+
+<h2>Cookie state:</h2>
+<table>
+    <thead>
+    <tr>
+        <td>Name</td>
+        <td>Value</td>
+    </tr>
+    </thead>
+    <tbody th:each="cookie : ${cookies}">
+    <tr>
+        <td th:text="${cookie.name}"></td>
+        <td th:text="${cookie.value}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
