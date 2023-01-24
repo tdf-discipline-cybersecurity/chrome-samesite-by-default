@@ -1,0 +1,201 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>SameSite=Lax</title>
+
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="./static/reset.css">
+    <link rel="stylesheet" href="./static/reveal.css">
+    <link rel="stylesheet" href="./static/black.css" id="theme">
+    <link rel="stylesheet" href="./static/atom-one-dark.min.css">
+    <link rel="stylesheet" href="./static/pumpkin.css">
+    <link rel="stylesheet" href="./static/short.css">
+
+
+    
+  </head>
+  <body>
+    
+    <div class="reveal">
+      <div class="slides">
+  
+
+    <h1 id="heading"></h1>
+
+
+<section data-shortcode-section>
+<section data-noprocess data-shortcode-slide
+      id="longTimeAgo">
+<div class="sectionbreak">
+    <h2>A long time ago&hellip;</h2>
+    <h3 class="important"><p>Chrome defaulted SameSite to Lax.</p>
+</h3>
+</div>
+</section><section>
+<h2 id="chrome-80-update">Chrome 80 Update</h2>
+<div class="text-content ">
+    <div class="source-ref">
+    <a href="https://www.chromium.org/updates/same-site/">Chromium.org</a>
+</div>
+<p>Between February and August 2020, Chrome release the <strong>SameSite-by-default</strong> and <strong>SameSite=None-requires-Secure</strong> behavior.</p>
+<p>The first one will assume &ldquo;Lax&rdquo; value is the default if no value for SameSite are set on a cookie.</p>
+</div>
+</section><section>
+<h2 id="lax-very-short-overview">Lax (very) short overview</h2>
+<div class="text-content ">
+    <table>
+<thead>
+<tr>
+<th>Request</th>
+<th>Origin</th>
+<th>Target</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET (*)</td>
+<td>myApp.com</td>
+<td>myApp.com</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>GET (Link)</td>
+<td>perdu.com</td>
+<td>myApp.com</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>GET (Img/Iframe/&hellip;)</td>
+<td>perdu.com</td>
+<td>myApp.com</td>
+<td>NOK</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>perdu.com</td>
+<td>myApp.com</td>
+<td>NOK</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section><section>
+<h2 id="toutes-les-requetes-sont-protégé">Toutes les requetes sont protégé&hellip;</h2>
+<div class="text-content ">
+    <p><img src="./static/gaule.jpg" alt="Gaule"></p>
+</div>
+</section><section>
+<h2 id="toute--non-">Toute ? Non !</h2>
+<div class="text-content ">
+    <div class="source-ref">
+    <a href="https://groups.google.com/a/chromium.org/g/blink-dev/c/AknSSyQTGYs/m/wRWG65IWBQAJ">groups.google.com</a>
+</div>
+<p><img src="./static/ms.png" alt="M$"></p>
+</div>
+</section><section>
+<h2 id="so-we-make-an-exception">So, we make an exception</h2>
+<div class="text-content ">
+    <p><img src="./static/lily.png" alt="M$"></p>
+</div>
+</section><section>
+<h2 id="quick-summary">Quick summary</h2>
+<div class="text-content ">
+    <ul>
+<li>SameSite default to Lax</li>
+<li>Lax block cookie on POST from 3rd party</li>
+<li>&ldquo;Default&rdquo;, doesn&rsquo;t block cookie &ldquo;if&rdquo; those are fresh session cookies.</li>
+</ul>
+</div>
+</section>
+
+</section>
+
+
+<section data-shortcode-section>
+<section data-noprocess data-shortcode-slide
+      id="Idea">
+<div class="sectionbreak">
+    <h2>Idea</h2>
+    <h3 class="important"><p>Idea to set our cookie to <strong>Lax/Strict</strong> and/or have more than 2 minutes (and be future proof)</p>
+</h3>
+</div>
+</section><section>
+<div class="text-content ">
+    <p><img src="./static/rfc.png" alt="M$"></p>
+</div>
+</section><section>
+<p><a href="http://myapp.com/">Much demo</a></p>
+
+</section>
+</section>
+
+  
+
+
+</div>
+      
+
+    </div>
+<script type="text/javascript" src=./static/object-assign.js></script>
+
+<a href="./print/" id="print-location" style="display: none;"></a>
+
+<script type="application/json" id="reveal-hugo-site-params">{"center":false,"controlslayout":"edges","custom_js":"js/custom.js","height":"90%","highlight_theme":"atom-one-dark","reveal_cdn":"./reveal-js","width":"100%"}</script>
+<script type="application/json" id="reveal-hugo-page-params">null</script>
+
+<script src="./static/reveal.js"></script>
+
+<script type="text/javascript">
+  
+  
+  function camelize(map) {
+    if (map) {
+      Object.keys(map).forEach(function(k) {
+        newK = k.replace(/(\_\w)/g, function(m) { return m[1].toUpperCase() });
+        if (newK != k) {
+          map[newK] = map[k];
+          delete map[k];
+        }
+      });
+    }
+    return map;
+  }
+  
+  var revealHugoDefaults = { center: true, controls: true, history: true, progress: true, transition: "slide" };
+  var revealHugoSiteParams = JSON.parse(document.getElementById('reveal-hugo-site-params').innerHTML);
+  var revealHugoPageParams = JSON.parse(document.getElementById('reveal-hugo-page-params').innerHTML);
+  
+  var options = Object.assign({},
+    camelize(revealHugoDefaults),
+    camelize(revealHugoSiteParams),
+    camelize(revealHugoPageParams));
+  Reveal.initialize(options);
+</script>
+
+
+  
+  
+  <script type="text/javascript" src="./static/marked.js"></script>
+  
+  <script type="text/javascript" src="./static/markdown.js"></script>
+  
+  <script type="text/javascript" src="./static/highlight.js"></script>
+  
+  <script type="text/javascript" src="./static/zoom.js"></script>
+  
+  
+  <script type="text/javascript" src="./static/notes.js"></script>
+
+
+<script type="text/javascript" src="./static/custom.js"></script>
+    
+    
+  </body>
+</html>
+

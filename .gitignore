@@ -21,3 +21,6 @@
 
 # Target
 target/
+
+# IntelIj
+.idea/

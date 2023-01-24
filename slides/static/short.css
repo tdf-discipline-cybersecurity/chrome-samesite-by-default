@@ -1,0 +1,27 @@
+.source-ref {
+    text-align: right;
+    font-style: italic;
+    width: 99%;
+    font-size: 0.5em;
+}
+.source-ref a {
+    color:seagreen;
+    text-shadow: none;
+}
+
+.text-content {
+    text-align: justify;
+    text-align: justify;
+    background: rgba(255, 255, 255, 0.20);
+    padding: 20px;
+    width: 70%;
+    margin:auto;
+}
+
+.reveal .controls button {
+    overflow: hidden;
+}
+
+div .sectionbreak {
+    width:70%;
+}

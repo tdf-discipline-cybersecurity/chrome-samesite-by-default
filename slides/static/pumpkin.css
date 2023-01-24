@@ -1,0 +1,186 @@
+body {
+  text-shadow: 2px 2px 0px #111111;
+}
+
+.columns {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  width: 50%;
+  align-items: center;
+  display: flex;
+}
+
+.reveal {
+  background-image: url(./mainbackground.png);
+  background-size: cover;
+  text-shadow: 2px 2px 0px #111111;
+  -webkit-text-stroke-color: #0e2231;
+  -webkit-text-stroke-width: 1px;
+}
+
+::marker {
+  -webkit-text-stroke-color: #0e2231;
+  -webkit-text-stroke-width: 1px;
+  color: #0e2231;
+}
+
+.reveal h1, .reveal h2 {
+  text-shadow: 2px 2px 0px #111111;
+  margin-top: 40px;
+  width: 70%;
+}
+.reveal h1, .reveal h2, .reveal h3 {
+  text-align: left;
+  margin-left: 50px;
+}
+
+.reveal .slides {
+  height: 100%!important;
+  top: 0!important;
+  margin-top: 0!important;
+}
+
+.reveal .slides>section {
+  min-height: 90%!important;
+}
+
+.reveal .slides>section>section {
+  min-height: 100%!important;
+}
+
+.reveal.slide .slides > section, .reveal.slide .slides > section > section {
+  min-height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  position: absolute !important;
+  top: 0 !important;
+  align-items: center !important;
+}
+
+section > h2 {
+  position: absolute !important;
+  top: 40px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  left: 0 !important;
+  right: 0 !important;
+  text-align: center !important;
+}
+.print-pdf .reveal.slide .slides > section, .print-pdf .reveal.slide .slides > section > section {
+  min-height: 770px !important;
+  /*position: relative !important;*/
+}
+
+.pdf-page {
+  border: 1px solid white;
+
+}
+
+.print-pdf .reveal.slide .slides .pdf-page section.present {
+  position: unset !important;
+}
+
+
+.print-pdf .reveal.slide .slides .pdf-page {
+  display: flex;
+  align-items: center;
+}
+
+.highlight {
+  max-height: calc( var(--vh, 1vh) * 75 );
+  overflow: auto;
+}
+
+.reveal pre {
+  overflow: unset !important;
+  width: 100% !important;
+  margin: unset !important;
+  font-size: 0.35em !important;
+}
+
+.reveal pre code {
+    max-height: unset !important;
+    overflow: unset !important;
+}
+
+
+.illustration {
+  max-height: 450px;
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.illustration + .title {
+  position: relative;
+  font-size: 10px;
+  margin-top: -20px;
+  display: block;
+  transform: rotate(-27.88deg) translate(5%, -300%);
+}
+
+
+.image-clip-src {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+strong {
+  color: #EF5F61 !important;
+}
+
+.important {
+  color: #137fc9 !important;
+  text-shadow: 2px 2px 0px #111111 !important;
+}
+
+
+
+.tab {
+  width: 70%;
+}
+
+ /* Style the tab */
+ .buttons {
+  overflow: hidden;
+}
+
+/* Style the buttons that are used to open the tab content */
+.buttons button {
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: 0.3s;
+  color: rgb(66, 175, 250);
+  font-size: 12px;
+  border-bottom: 2px solid transparent;
+  background-color: transparent;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  border-bottom-color: rgba(66, 175, 250, 125);
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  border-bottom-color: rgb(66, 175, 250);
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 0;
+}
+
+.tabcontent.active {
+  display: block;
+}
